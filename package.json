@@ -1,0 +1,37 @@
+{
+  "name": "@sjr/backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "lint": "eslint src --max-warnings=0",
+    "test": "tsx --test src/services/todo.service.test.ts src/services/password.service.test.ts src/services/diary.service.test.ts src/services/finance.service.test.ts src/services/calendar.service.test.ts src/services/leave.service.test.ts"
+  },
+  "dependencies": {
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "express-session": "^1.18.2",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.19.2",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/express-session": "^1.18.2",
+    "@types/node": "^24.7.2",
+    "@eslint/js": "^9.39.0",
+    "eslint": "^9.39.0",
+    "globals": "^16.5.0",
+    "tsx": "^4.20.6",
+    "typescript-eslint": "^8.46.0",
+    "typescript": "~5.9.3"
+  }
+}

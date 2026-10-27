@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: daybook-api
+    runtime: node
+    plan: starter
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    disk:
+      name: daybook-calendar-pages
+      mountPath: /opt/render/project/src/storage
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AI_PROVIDER
+        value: mock
+      - key: AI_MODEL
+        value: gemini-2.5-flash-lite
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: CALENDAR_UPLOAD_DIR
+        value: /opt/render/project/src/storage/calendar-pages
